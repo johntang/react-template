@@ -1,0 +1,23 @@
+/*
+ * {{ properCase name }} Messages
+ *
+ * This contains all the text for the {{ properCase name }} component.
+ */
+
+import { defineMessages } from 'react-intl';
+import { /* objToUrlParam, */ exportLocale } from '../../utils/functions';
+
+export const scope = 'app.components.{{ properCase name }}';
+
+const messages = {
+  header: {
+    id: `${scope}.header`,
+    defaultMessage: 'This is the {{ properCase name }} component!',
+  },
+};
+
+export const {{camelCase name}}En = exportLocale(messages, 'en');
+export const {{camelCase name}}ZhHant = exportLocale(messages, 'zh-hant');
+export const {{camelCase name}}ZhHans = exportLocale(messages, 'zh-hans');
+
+export default defineMessages(messages);

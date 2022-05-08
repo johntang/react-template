@@ -1,0 +1,61 @@
+/**
+ *
+ *
+{{properCase name}}
+*
+ */
+{{#if memo}}
+  import React, { memo } from 'react';
+{{else}}
+  import React from 'react';
+{{/if}}
+// import PropTypes from 'prop-types';
+{{#if wantHeaders}}
+  import { Helmet } from 'react-helmet';
+{{/if}}
+{{#if wantMessages}}
+// import { FormattedMessage } from 'react-intl';
+{{/if}}
+{{#if wantActionsAndReducer}}
+import { useSelector, useDispatch } from 'react-redux';
+import { useInjectReducer } from 'utils/reduxStore/injectReducer';
+import {{name}}Slice from './reducer';
+import { rootStateSelector } from './selectors';
+import { PAGE_KEY } from './constants';
+{{/if}}
+
+export function
+{{properCase name}}
+() {
+{{#if wantActionsAndReducer}}
+  const { actions, reducer } = {{name}}Slice;
+  useInjectReducer({ key: PAGE_KEY, reducer });
+  const dispatch = useDispatch();
+  const {{name}} = useSelector(rootStateSelector());
+{{/if}}
+return (
+<React.Fragment>
+  {{#if wantHeaders}}
+    <Helmet>
+      <title>
+        {{properCase name}}
+      </title>
+      <meta name="description" content="Description of {{properCase name}}" />
+    </Helmet>
+  {{/if}}
+  <div>
+Hello World.
+  </div>
+</React.Fragment>
+);
+}
+{{properCase name}}
+.propTypes = {
+};
+export default 
+{{#if memo}}
+  memo
+{{/if}}
+(
+{{properCase name}}
+);
