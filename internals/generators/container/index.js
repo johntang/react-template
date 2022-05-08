@@ -43,12 +43,6 @@ module.exports = {
     },
     {
       type: 'confirm',
-      name: 'wantSaga',
-      default: true,
-      message: 'Do you want sagas for asynchronous flows? (e.g. fetching data)',
-    },
-    {
-      type: 'confirm',
       name: 'wantMessages',
       default: true,
       message: 'Do you want i18n messages (i.e. will this component use text)?',
