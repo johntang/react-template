@@ -8,7 +8,7 @@ const globalSlice = createSlice({
   reducers: {},
 });
 
-export const createReducer = (injectedReducers = {}) => {
+const createReducer = (injectedReducers = {}) => {
   const rootReducer = combineReducers({
     [rootApi.reducerPath]: rootApi.reducer,
     global: globalSlice.reducer,
@@ -17,3 +17,5 @@ export const createReducer = (injectedReducers = {}) => {
 
   return rootReducer;
 };
+
+export { createReducer };

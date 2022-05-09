@@ -1,9 +1,11 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { FormattedMessage } from 'react-intl';
+import { nanoid } from '@reduxjs/toolkit';
+
 import { useInjectReducer } from 'utils/reduxStore/injectReducer';
 import { PAGE_KEY } from './constants';
 import { rootStateSelector } from './selector';
 import homeSlice from './reducer';
-import { useDispatch, useSelector } from 'react-redux';
-import { FormattedMessage } from 'react-intl';
 
 // App.js
 function Home() {
@@ -14,14 +16,18 @@ function Home() {
   const homePage = useSelector(rootStateSelector());
 
   return (
-    <>
-      <main>
-        <h2>Welcome to the homepage!</h2>
-        <p>You can do this, I believe in you.</p>
-        <FormattedMessage id="myMessage"></FormattedMessage>
-        <div>{JSON.stringify(homePage)}</div>
-      </main>
-    </>
+    <div>
+      <FormattedMessage id="myMessage" />
+      <div>{JSON.stringify(homePage)}</div>
+      <button
+        onClick={() => {
+          dispatch(actions.createPost({ name: 123, id: nanoid() }));
+        }}
+        type="button"
+      >
+        click
+      </button>
+    </div>
   );
 }
 

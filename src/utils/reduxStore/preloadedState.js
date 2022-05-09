@@ -1,5 +1,3 @@
-const preloadedState = {
+const preloadedState = {};
 
-}
-
-export default preloadedState
+export default preloadedState;

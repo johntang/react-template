@@ -3,12 +3,11 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { IntlProvider } from 'react-intl';
 
+import { Provider } from 'react-redux';
+import { store } from 'utils/reduxStore';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from './serviceWorkerRegistration';
-
-import { Provider } from 'react-redux';
-import { store } from 'utils/reduxStore/configureStore';
 
 import { getCurrentTranslation } from './i18n';
 
@@ -17,11 +16,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <IntlProvider
-        locale={'en'}
-        key={'en'}
-        messages={getCurrentTranslation('en')}
-      >
+      <IntlProvider locale="en" key="en" messages={getCurrentTranslation('en')}>
         <BrowserRouter>
           <App />
         </BrowserRouter>

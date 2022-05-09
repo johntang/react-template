@@ -2,5 +2,8 @@
   "editor.formatOnSave": true,
   "prettier.eslintIntegration": true,
   "eslint.run": "onSave",
-  "window.zoomLevel": -1
+  "window.zoomLevel": -1,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }

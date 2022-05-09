@@ -1,3 +1,4 @@
+/* eslint-disable import/no-import-module-exports */
 import { configureStore } from '@reduxjs/toolkit';
 import rootApi from '../request';
 import preloadedState from './preloadedState';
@@ -17,7 +18,5 @@ store.injectedReducers = {};
 if (process.env.NODE_ENV !== 'production' && module.hot) {
   module.hot.accept('./reducer', () => store.replaceReducer(rootReducer));
 }
-
-console.log(store);
 
 export { store };
