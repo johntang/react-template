@@ -27,8 +27,21 @@ function Home() {
       >
         click
       </button>
+      <ButtonWithHoc a="123" />
     </div>
   );
 }
 
 export default Home;
+
+function Button(props) {
+  console.log(props);
+  return <button type="button">hello</button>;
+}
+
+const withHoc = (WrapperComponent) =>
+  function (remaining) {
+    return <WrapperComponent {...remaining} history={1234} />;
+  };
+
+const ButtonWithHoc = withHoc(Button);
